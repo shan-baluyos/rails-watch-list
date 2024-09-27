@@ -3,3 +3,9 @@
 <h4>Overview: <%= @movie.overview %></h4>
 <h4>Poster URL: <%= @movie.poster_url %></h4>
 <h4>Rating: <%= @movie.rating %></h4>
+
+<%=  'Back to all Movies', movies_path %>
+<%= link_to 'Delete',
+  movie_path(@movie_path),
+  data: {turbo_method: :delete, turbo_confirm, "Are you sure you want to delete?"}
+%>

@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get "movies", to: "movies#index"
-  get "movies/:id", to: "movies#show"
+  get "movies/new", to: "movies#new", as: :new_movie
+  post "movies", to: "movies#create"
+  get "movies/:id", to: "movies#show", as: :movie
+  get "movies/:id/edit", to: "movies#edit", as: :edit_movie
+  patch "movies/:id", to: "movies#udpate"
+  delete "movies/:id", to: "movies#destroy"
 
   resources :lists, except: [ :edit, :update ]
 end
